@@ -17,6 +17,7 @@ function eventListeners() {
 
 // init github object
 const github = new Github();
+const ui = new UI();
 
 function getData(e) {
     let username = githubname.value.trim();
@@ -28,11 +29,14 @@ function getData(e) {
             .then(response => {
                 if (response.user.message === "Not Found")
                     console.log("Error");
-                else
+                else {
                     console.log(response);
+                    ui.showUserInfo(response.user);
+                }
             })
             .catch(err => console.log(err));
     }
+    ui.clearInput();
 
     e.preventDefault();
 }
