@@ -2,7 +2,7 @@
 
 // Select elements
 const form = document.getElementById("github-form");
-const githubName = document.getElementById("githubName");
+const githubname = document.getElementById("githubname");
 const clearLastUsers = document.getElementById("clear-last-users");
 
 
@@ -21,7 +21,7 @@ const github = new Github();
 const ui = new UI();
 
 function getData(e) {
-    let username = githubName.value.trim();
+    let username = githubname.value.trim();
 
     if (username === "")
         alert("Please enter a valid username");

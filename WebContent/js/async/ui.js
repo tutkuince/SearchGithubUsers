@@ -3,7 +3,7 @@ class UI {
         this.profileDiv = document.getElementById("profile");
         this.reposDiv = document.getElementById("repos");
         this.lastUsers = document.getElementById("last-users");
-        this.githubname = document.getElementById("githubName");
+        this.githubname = document.getElementById("githubname");
         this.cardBody = document.getElementsByClassName("card-body")[0];
     }
 
