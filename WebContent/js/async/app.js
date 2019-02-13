@@ -11,7 +11,7 @@ eventListeners();
 
 function eventListeners() {
     form.addEventListener("submit", getData);
-
+    document.addEventListener("DOMContentLoaded", showLastUsers);
 
 }
 
@@ -42,4 +42,8 @@ function getData(e) {
     ui.clearInput();
 
     e.preventDefault();
+}
+
+function showLastUsers() {
+    Storage.getSearchedUserFromStorage().forEach(u => ui.showLastUsers(u));
 }
