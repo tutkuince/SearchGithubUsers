@@ -2,7 +2,7 @@
 
 // Select elements
 const form = document.getElementById("github-form");
-const githubname = document.getElementById("githubname");
+const githubName = document.getElementById("githubName");
 const clearLastUsers = document.getElementById("clear-last-users");
 
 
@@ -12,6 +12,7 @@ eventListeners();
 function eventListeners() {
     form.addEventListener("submit", getData);
     document.addEventListener("DOMContentLoaded", showLastUsers);
+    clearLastUsers.addEventListener("click", clearAllSearched);
 
 }
 
@@ -20,7 +21,7 @@ const github = new Github();
 const ui = new UI();
 
 function getData(e) {
-    let username = githubname.value.trim();
+    let username = githubName.value.trim();
 
     if (username === "")
         alert("Please enter a valid username");
@@ -46,4 +47,11 @@ function getData(e) {
 
 function showLastUsers() {
     Storage.getSearchedUserFromStorage().forEach(u => ui.showLastUsers(u));
+}
+
+function clearAllSearched() {
+    if (confirm("Would you like to delete all users?")) {
+        Storage.clearAllSearchedUserFromStorage();
+        ui.clearAllSearchedFromUI();
+    }
 }
