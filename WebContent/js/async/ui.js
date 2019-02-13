@@ -51,24 +51,27 @@ class UI {
     }
 
     showReposInfo(repos) {
-        this.reposDiv.innerHTML += `
-           <div class="mb-2 card-body">
-               <div class="row">
-                   <div class="col-md-2">
-                   <span></span>
-                   <a href="${repos["html_url"]}" target = "_blank" id = "repoName">${repos["name"]}</a>
-                   </div>
-                   <div class="col-md-6">
-                       <button class="btn btn-secondary">
-                           Stars  <span class="badge badge-light" id="repoStar">${repos["stargazers_count"]}</span>
-                       </button>
-                       <button class="btn btn-info">
-                           Forks  <span class="badge badge-light" id ="repoFork">${repos["forks_count"]}</span>
-                       </button>
-                   </div>
+        this.reposDiv.innerHTML = "";
+        repos.forEach(repo => {
+            this.reposDiv.innerHTML += `
+               <div class="mb-2 card-body">
+                   <div class="row">
+                       <div class="col-md-2">
+                       <span></span>
+                       <a href="${repos["html_url"]}" target = "_blank" id = "repoName">${repo["name"]}</a>
+                       </div>
+                       <div class="col-md-6">
+                           <button class="btn btn-secondary">
+                               Stars  <span class="badge badge-light" id="repoStar">${repo["stargazers_count"]}</span>
+                           </button>
+                           <button class="btn btn-info">
+                               Forks  <span class="badge badge-light" id ="repoFork">${repo["forks_count"]}</span>
+                           </button>
+                       </div>
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
+        });
     }
 
     showError(message, type) {
