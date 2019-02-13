@@ -58,7 +58,7 @@ class UI {
                    <div class="row">
                        <div class="col-md-2">
                        <span></span>
-                       <a href="${repos["html_url"]}" target = "_blank" id = "repoName">${repo["name"]}</a>
+                       <a href="${repo["html_url"]}" target = "_blank" id = "repoName">${repo["name"]}</a>
                        </div>
                        <div class="col-md-6">
                            <button class="btn btn-secondary">
