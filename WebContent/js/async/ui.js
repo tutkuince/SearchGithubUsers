@@ -84,4 +84,10 @@ class UI {
             div.remove();
         }, 3000);
     }
+
+    showLastUsers(username) {
+        this.lastUsers.innerHTML += `
+            <li class="list-group-item">${username}</li>
+        `;
+    }
 }
