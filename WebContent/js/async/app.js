@@ -33,8 +33,8 @@ function getData(e) {
                 } else {
                     ui.showUserInfo(response.user);
                     ui.showReposInfo(response.repo);
-                    ui.showLastUsers(username);
-                    Storage.addSearchedUserToStorage(username);
+                    if (Storage.addSearchedUserToStorage(username))
+                        ui.showLastUsers(username);
                 }
             })
             .catch(err => console.log(err));
