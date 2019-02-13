@@ -3,7 +3,7 @@ class UI {
         this.profileDiv = document.getElementById("profile");
         this.reposDiv = document.getElementById("repos");
         this.lastUsers = document.getElementById("last-users");
-        this.githubname = document.getElementById("githubname");
+        this.githubname = document.getElementById("githubName");
         this.cardBody = document.getElementsByClassName("card-body")[0];
     }
 
@@ -89,5 +89,11 @@ class UI {
         this.lastUsers.innerHTML += `
             <li class="list-group-item">${username}</li>
         `;
+    }
+
+    clearAllSearchedFromUI() {
+        while (this.lastUsers.firstElementChild !== null){
+            this.lastUsers.removeChild(this.lastUsers.firstElementChild);
+        }
     }
 }
