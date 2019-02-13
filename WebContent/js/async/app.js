@@ -31,9 +31,10 @@ function getData(e) {
                     ui.showError("User not found", "warning");
                     console.log("Error");
                 } else {
-                    console.log(response);
                     ui.showUserInfo(response.user);
                     ui.showReposInfo(response.repo);
+                    ui.showLastUsers(username);
+                    Storage.addSearchedUserToStorage(username);
                 }
             })
             .catch(err => console.log(err));
