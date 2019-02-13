@@ -48,4 +48,25 @@ class UI {
             </div>
         `;
     }
+
+    showReposInfo(repos) {
+        this.reposDiv.innerHTML += `
+           <div class="mb-2 card-body">
+               <div class="row">
+                   <div class="col-md-2">
+                   <span></span>
+                   <a href="${repos["html_url"]}" target = "_blank" id = "repoName">${repos["name"]}</a>
+                   </div>
+                   <div class="col-md-6">
+                       <button class="btn btn-secondary">
+                           Stars  <span class="badge badge-light" id="repoStar">${repos["stargazers_count"]}</span>
+                       </button>
+                       <button class="btn btn-info">
+                           Forks  <span class="badge badge-light" id ="repoFork">${repos["forks_count"]}</span>
+                       </button>
+                   </div>
+                </div>
+            </div>
+        `;
+    }
 }
