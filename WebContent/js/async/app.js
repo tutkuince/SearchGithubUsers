@@ -27,11 +27,13 @@ function getData(e) {
     else {
         github.getGithubData(username)
             .then(response => {
-                if (response.user.message === "Not Found")
+                if (response.user.message === "Not Found"){
+                    ui.showError("User not found", "warning");
                     console.log("Error");
-                else {
+                } else {
                     console.log(response);
                     ui.showUserInfo(response.user);
+                    ui.showReposInfo(response.repo);
                 }
             })
             .catch(err => console.log(err));
