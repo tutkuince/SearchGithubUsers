@@ -20,6 +20,6 @@ class Storage {
     }
 
     static clearAllSearchedUserFromStorage() {
-
+        localStorage.removeItem("users");
     }
 }
