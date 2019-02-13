@@ -10,8 +10,13 @@ class Storage {
         return users;
     }
 
-    static addSearchedUserToStorage() {
+    static addSearchedUserToStorage(username) {
+        let users = this.getSearchedUserFromStorage();
 
+        if (users.indexOf(username) === -1)
+            users.push(username);
+
+        localStorage.setItem("users", JSON.stringify(users));
     }
 
     static clearAllSearchedUserFromStorage() {
